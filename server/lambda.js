@@ -13,6 +13,7 @@ async function launchBrowser() {
   await page.goto("http://localhost:7000");
 
   const html = await page.content();
+  console.log(html);
   await browser.close();
   server.close();
 
