@@ -12,15 +12,11 @@ async function launchBrowser() {
   const page = await browser.newPage();
   await page.goto("http://localhost:7000");
 
-  try {
-    const html = await page.content();
-    console.log(html);
-  } catch (e) {
-    console.error(e);
-  }
-
+  const html = await page.content();
   await browser.close();
   server.close();
+
+  return html;
 }
 
-launchBrowser();
+exports.handler = launchBrowser;
